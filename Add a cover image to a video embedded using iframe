@@ -1,0 +1,49 @@
+<style>
+  .video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* Assuming a 16:9 aspect ratio (change as needed) */
+  }
+
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .video-overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<div class="video-container">
+  <div class="video-overlay" onclick="playVideo()">
+    <img src="path/to/your-image.jpg" alt="Cover Image">
+  </div>
+  <iframe class="video-iframe" src="path/to/your-video-embed-url" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<script>
+  function playVideo() {
+    var overlay = document.querySelector('.video-overlay');
+    overlay.style.display = 'none';
+
+    var video = document.querySelector('.video-iframe');
+    video.src += "&autoplay=1";
+  }
+</script>
